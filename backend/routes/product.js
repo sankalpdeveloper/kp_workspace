@@ -6,5 +6,7 @@ const productController = require('../controller/product.controller')
 router.post('/getproduct', productController.getproduct);
 router.post('/addproduct', productController.insertproduct);
 router.get('/getall',productController.getallproduct)
+router.post('/updateproduct',productController.updateproducts)
+router.post('/enquiry', productController.enquiry)
 
 module.exports = router; 

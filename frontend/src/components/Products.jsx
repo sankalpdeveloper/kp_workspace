@@ -7,9 +7,10 @@ import {
 } from "react-icons/ai";
 
 
-const baseUrl = 'http://127.0.0.1:5000/product/getall'
 
 function Products() {
+  // console.log(process.env.B);
+  const baseUrl = 'http://127.0.0.1:5000/product/getall'
 const [product, setProduct] = useState([])
   useEffect(() => {
     axios.get(baseUrl).then((response)=>{
@@ -23,11 +24,11 @@ const [product, setProduct] = useState([])
           <h3 className="text-gray-600 text-2xl font-medium">Our Products</h3>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
             {product.map((productitem) => {
-              const {id,image_url,item_name,item_price} = productitem
+              const {_id,image_url,item_name,item_price} = productitem
               return (
-                <Link to={`/product/${id}`}>
+                <Link to={`/product/${_id}`}>
                
-                <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden" key={id}>
+                <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden" key={_id}>
                   <div
                     className="flex items-end justify-end h-56 w-full bg-cover"
                     style={{
@@ -36,7 +37,7 @@ const [product, setProduct] = useState([])
                     }}
                   >
                     <button className="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
-                     <Link to={`/product/${id}`}>
+                     <Link to={`/product/${_id}`}>
                        <AiOutlineShoppingCart/>
                      </Link>
                     </button>
